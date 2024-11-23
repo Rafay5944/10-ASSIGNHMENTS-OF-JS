@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style.css">
+    <title>All 20 Assignments</title>
+</head>
+<body>
+    <!-- first assignment -->
+
+    <h1>Print Numbers from 1 to 10</h1>
+    <ul class="number-list" id="numberList"></ul>
+
+    <button onclick="printNumbers()" class="btn-1">Click to Print Numbers</button>
+    <br>
+    <hr>
+    <!-- Second assignment is start  -->
+    
+    <h1>Even Numbers Between 1 and 20</h1>
+    <ul class="number-list2" id="numberList2"></ul>
+
+    <button onclick="printEvenNumbers2()" class="btn-2">Click to Print Even Numbers</button>
+    <br>
+    <hr>
+
+
+    <!-- Third Assignment  -->
+    <div class="container">
+        <h1 class="heading">SUM OF FIRST 10 NATURAL NUMBER</h1>
+        <p id="result">Click the button to calculate the sum of the first 10 natural numbers.</p>
+        <button onclick="calculateSum()">Calculate Sum</button>
+    </div>
+    <br>
+    <hr>
+
+    <!-- fourth Assignment  -->
+    <div class="container4">
+        <h1>Reverse the String "Gexton"</h1>
+        <p id="result4">Click the button to reverse the string "Gextont".</p>
+        <button onclick="reverseString()" class="btn-4">Reverse String</button>
+    </div>
+    <br>
+    <hr>
+    <!-- fifth assignment  -->
+    <div class="container5">
+        <h1>Multiplication Table of 5</h1>
+        <pre id="result5">Click the button to print the multiplication table of 5.</pre>
+        <button onclick="printMultiplicationTable()" class="btn-5">Print Table</button>
+    </div>
+    <br>
+    <hr>
+
+
+    <!-- sixth assignment  -->
+
+
+    <div class="container6">
+        <h1>Print Numbers from 1 to 5</h1>
+        <pre id="result6">Click the button to print numbers from 1 to 5.</pre>
+        <button onclick="printNumbers()"  class="btn-6">Print Numbers</button>
+    </div>
+    <br>
+    <hr>
+
+    <!-- seventh assignment  -->
+
+    <div class="container7">
+        <h1>Sum of Digits of 1234</h1>
+        <p id="result7">Click the button to calculate the sum of the digits of 1234.</p>
+        <button onclick="calculateSumOfDigits()" class="btn-7">Calculate Sum</button>
+    </div>
+    <br>
+    <hr>
+    <!-- Eight Assignment start -->
+    <div class="container8">
+        <h1>Countdown from 10 to 1</h1>
+        <pre id="result8">Click the button to start the countdown from 10 to 1.</pre>
+        <button onclick="countdown()"  class="btn-8">Start Countdown</button>
+    </div>
+    <br>
+    <hr>
+    <div class="container9">
+        <h1>Prime Number Checker</h1>
+        <label for="numberInput">Enter a number:</label>
+        <input type="number" id="numberInput" placeholder="Enter number"  class="input9"/>
+        <button onclick="checkPrime()" class="btn9">Check Prime</button>
+        <p id="result9"></p>
+    </div>
+    <br>
+    <hr>
+    
+
+
+
+
+    <script>
+        function printNumbers() {
+            const numberList = document.getElementById("numberList");
+            numberList.innerHTML = ""; 
+            // Clear any existing list items
+
+            for (let i = 1; i <= 10; i++) {
+                const listItem = document.createElement("li");
+                listItem.textContent = i;
+                numberList.appendChild(listItem);
+            }
+        }
+
+        // Second Assignment 
+
+
+        function printEvenNumbers2() {
+            const numberList2 = document.getElementById("numberList2");
+            numberList2.innerHTML = ""; // Clear any existing list items
+
+            // Loop to find even numbers between 1 and 20
+            for (let i = 2; i <= 20; i += 2) {
+                const listItem2 = document.createElement("li");
+                listItem2.textContent = i;
+                numberList2.appendChild(listItem2);
+            }
+        
+        }
+        // Third Assignment  Start
+
+        function calculateSum() {
+            let totalSum = 0;
+            // Loop to sum the first 10 natural numbers
+            for (let i = 1; i <= 10; i++) {
+                totalSum += i;
+            }
+            // Display the result in the paragraph
+            document.getElementById("result").innerText = "The sum of the first 10 natural numbers is: " + totalSum;
+        }
+
+        // Fourth assignment 
+
+
+        function reverseString() {
+            let str = "Gexton";
+            let reversedStr = "";
+            // Loop through the string from the end to the beginning
+            for (let i = str.length - 1; i >= 0; i--) {
+                reversedStr += str[i];
+            }
+            // Display the reversed string
+            document.getElementById("result4").innerText = "Reversed String: " + reversedStr;
+        }
+
+
+        // Fifth assignment 
+
+
+        function printMultiplicationTable() {
+            let table = "";
+            for (let i = 1; i <= 10; i++) {
+                table += "5 x " + i + " = " + (5 * i) + "\n";
+            }
+            document.getElementById("result5").innerText = table;
+        }
+
+
+        // sixth assignment 
+
+
+        function printNumbers() {
+            let i = 1;
+            let numbers = "";
+            // Use a while loop to print numbers from 1 to 5
+            while (i <= 5) {
+                numbers += i + "\n";
+                i++;
+            }
+            document.getElementById("result6").innerText = numbers;
+        }
+
+
+        // seventh assignment 
+
+
+        
+        function calculateSumOfDigits() {
+            let number = 1234;
+            let sum = 0;
+
+            // Use a while loop to calculate the sum of digits
+            while (number > 0) {
+                sum += number % 10;  // Add the last digit of the number to the sum
+                number = Math.floor(number / 10);  // Remove the last digit
+            }
+
+            // Display the result
+            document.getElementById("result7").innerText = "The sum of the digits of 1234 is: " + sum;
+        }
+
+
+        // eighth assignment 
+
+
+        function countdown() {
+            let i = 10;
+            let countdownStr = "";
+            // Use a while loop to count down from 10 to 1
+            while (i >= 1) {
+                countdownStr += i + "\n"; // Add the current number to the string
+                i--; // Decrement the number
+            }
+            // Display the result
+            document.getElementById("result8").innerText = countdownStr;
+        }
+
+        // ninth assignment start
+
+
+
+        function checkPrime() {
+            let num = document.getElementById("numberInput").value;
+            num = parseInt(num);  // Convert input to integer
+            let resultElement = document.getElementById("result9");
+
+            // Validate input
+            if (isNaN(num) || num <= 1) {
+                resultElement.textContent = "Please enter a number greater than 1.";
+                resultElement.style.color = "red";
+                return;
+            }
+
+            let isPrime = true;
+            let divisor = 2;
+
+            // Check for factors using a while loop
+            while (divisor * divisor <= num) {
+                if (num % divisor === 0) {
+                    isPrime = false;
+                    break;
+                }
+                divisor++;
+            }
+
+            // Display the result
+            if (isPrime) {
+                resultElement.textContent = `${num} is a prime number.`;
+                resultElement.style.color = "green";
+            } else {
+                resultElement.textContent = `${num} is not a prime number.`;
+                resultElement.style.color = "red";
+            }
+        }
+   
+
+    </script>
+
+</body>
+</html>
